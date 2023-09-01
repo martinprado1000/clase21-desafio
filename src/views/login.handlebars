@@ -1,0 +1,57 @@
+<div class="container mt-5">
+  <div class="card text-center">
+    {{#if hasError}}
+    <p>{{error}}</p>
+    {{/if}}
+    <div class="card-header">
+      Iniciar sesion
+    </div>
+    <form
+      class="row g-3 needs-validation"
+      novalidate
+      name="formLoginUser"
+      id="formLoginUser"
+    >
+      <div class="card-body">
+        <label for="emailLogin" class="form-label">Email</label>
+        <input
+          type="email"
+          class="form-control"
+          id="emailLogin"
+          name="emailLogin"
+          placeholder="Ingrese su correo"
+        />
+        <label for="passwordLogin"></label>
+        <input
+          type="password"
+          class="form-control"
+          id="passwordLogin"
+          name="passwordLogin"
+          placeholder="Ingrese su contraseña"
+        />
+        <button
+          class="btn btn-primary mt-3"
+          id="btnLogin"
+          name="btnLogin"
+        >Iniciar sesion</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- LLamamos al servisor io para ejecutarlo aca en el frontend, 
+como esto ejecuta el servidor este ya establece la comunicacion cada vez que se actualiza la paguina -->
+<script src="/socket.io/socket.io.js"></script>
+
+<!-- Aca le paso mi js publico -->
+<script src="/js/loginWebsocketsDB.js"></script>
+
+<!-- bootstrap -->
+<script
+  src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+  crossorigin="anonymous"
+></script>
+
+<!-- sweetalert2 -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

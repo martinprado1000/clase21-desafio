@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+    <!-- bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- Mi CSS -->
+    <link rel="stylesheet" href="/css/index.css">  <!-- El estilo tambien puede ser una variable porque va a depender de el estilo que le queramos pasar a dicha paguina -->
+</head>
+<body>
+
+    <!-- {{>navbar}}  De esta forma llamamos a un partial, con el singo de > (mayor) -->
+
+    {{{body}}}   <!-- De esta forma llamamos al body que nos pasaron por desde el render -->
+
+</body>
+<!-- Aca le paso mi js publico -->
+<script src="/js/chatWebsocketsDB.js"></script>
+</html>
