@@ -6,6 +6,8 @@
     novalidate
     name="formUser"
     id="formUser"
+    action="/api/register"
+    method="POST"
   >
     <div class="col-md-6">
       <label for="validationCustom01" class="form-label">Nombre</label>
@@ -82,12 +84,11 @@
       Please provide a valid email.
     </div>
     <div class="col-12">
-      <button
-        class="btn btn-primary"
-        type="submit"
-        name="btnRegister"
-        id="btnRegister"
-      >Enviar registro</button>
+      {{#if hasError}}
+        <p class="mt-1 bg-danger text-white">{{error}}</p>
+      {{/if}}
+      <button class="btn btn-primary" name="btnRegister" id="btnRegister">Enviar
+        registro</button>
     </div>
   </form>
 </div>

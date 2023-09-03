@@ -58,13 +58,18 @@ const pagesFn = (io) => {
 
   const realTimeProducts = async (req, res) => {
     try {
-      const userSession = req.user.email;
-      console.log(req.user.email) //----------------------------------
-      //console.log(userSession)
+      const userSession = req.user.name;// Recordar que con passport la session se guarda en req.user
       const query = req.query;
       const response = await manager.getProductsPaginate(query);
-      //console.log(response.data)
-      const data = response.data     
+      const data = response.data 
+      // if (user.rol == "admin") {
+      //   res.json({  
+      //     status: 200,
+      //     data: `Usuario admin: ${user.email} a iniciado sesion`,
+      //   });  
+      // } else {
+      //   res.json({ status: 200, data: `${user.email} a iniciado sesion` });
+      // }    
       res.render("realTimeProductsDb.handlebars", {data , userSession});
     } catch (e) {
       console.log(e);

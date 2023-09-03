@@ -47,6 +47,9 @@ app.use(
     saveUninitialized: true, // Permite guardar la sesion aunque el objeto de session no tenga nada.
   })
 );
+initializePassport();
+app.use(passport.initialize());
+app.use(passport.session());
 
 const PORT = 8080;
 const httpServer = app.listen(PORT, () =>
@@ -54,10 +57,6 @@ const httpServer = app.listen(PORT, () =>
 ); // Al server de express lo guardamos en una variable
 
 const io = ioFn(httpServer); // Ejecuto la funcion que crea el server socket.io y le passamos el server httpServer como parametro.
-
-initializePassport();
-app.use(passport.initialize());
-app.use(passport.session());
 
 const sessionRoutes = sessionRoutesFn(io);
 const productsRoutes = productsRoutesFn(io);

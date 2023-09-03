@@ -8,7 +8,7 @@ const viewSessionRoutesFn = (io) => {
   const router = Router();
 
   const sessionMiddleware = (req, res, next) => {  // Creo el middleware para usar en las siguientes 2 rutas
-    if (req.session.email) {
+    if (req.user) {  // recordar que passport deja la session en req.user
       res.redirect("/realTimeProducts");
     }
     return next();

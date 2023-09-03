@@ -11,46 +11,47 @@ const password = document.getElementById("password");
 
 submitForm.addEventListener("submit", async (e) => {
   e.preventDefault();
-  const data = {
-    name: name.value,
-    lastname: lastname.value,
-    age: age.value,
-    email: email.value,
-    password: password.value,
-  };
-  //console.log(data);
-  //socket.emit("regiterUser", data);
-  await fetch("/api/register", {
-    method: "POST",
-    headers: { "Content-type": "application/json;charset=UTF-8" },
-    body: JSON.stringify(data),
-  })
-    .then((response) => response.json())
-    .then((res) => {
-      if (res.status == 200) {
-        Swal.fire({
-          title: `${res.data}`,
-          icon: "success", // succes , warning , info , question
-          timer: 2000,
-          timerProgressBar: true,
-        });
-        name.value = "";
-        lastname.value = "";
-        age.value = "";
-        email.value = "";
-        password.value = "";
-        setTimeout(() => {
-          window.location.href = "http://localhost:8080/login";
-        }, 2000);
-      } else {
-        console.log(res.data);
-        Swal.fire({
-          title: "Error",
-          text: `${res.data}`,
-          icon: "error", // succes , warning , info , question
-        });
-      }
-    });
+  submitForm.submit() 
+  // const data = {
+  //   name: name.value,
+  //   lastname: lastname.value,
+  //   age: age.value,
+  //   email: email.value,
+  //   password: password.value,
+  // };
+  // //console.log(data);
+  // //socket.emit("regiterUser", data);
+  // await fetch("/api/register", {
+  //   method: "POST",
+  //   headers: { "Content-type": "application/json;charset=UTF-8" },
+  //   body: JSON.stringify(data),
+  // })
+  //   .then((response) => response.json())
+  //   .then((res) => {
+  //     if (res.status == 200) {
+  //       Swal.fire({
+  //         title: `${res.data}`,
+  //         icon: "success", // succes , warning , info , question
+  //         timer: 2000,
+  //         timerProgressBar: true,
+  //       });
+  //       name.value = "";
+  //       lastname.value = "";
+  //       age.value = "";
+  //       email.value = "";
+  //       password.value = "";
+  //       setTimeout(() => {
+  //         window.location.href = "http://localhost:8080/login";
+  //       }, 2000);
+  //     } else {
+  //       console.log(res.data);
+  //       Swal.fire({
+  //         title: "Error",
+  //         text: `${res.data}`,
+  //         icon: "error", // succes , warning , info , question
+  //       });
+  //     }
+  //   });
 });
 
 // socket.on("registerUser", (response) => {

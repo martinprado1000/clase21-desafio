@@ -1,6 +1,5 @@
 const { UserManagerDb } = require("../dao/userManagerDb");
 const { isValidPassword } = require("../utils/passwordHash");
-const flash = require("connect-flash");
 
 const pagesFn = (io) => {
   const manager = new UserManagerDb(io);
@@ -15,18 +14,16 @@ const pagesFn = (io) => {
   };
 
   const loginPost = async (req, res) => {
-    console.log({ user: req.user, session: req.session }); 
-    return res.json({
-      status: 200,
-      data: `${req.user.name} a iniciado sesion`,
-    });
+    //console.log({ user: req.user, session: req.session }); 
+    return res.redirect("/realTimeProducts")
   };
 
   const registerPost = async (req, res) => {
+    return res.redirect("/login")
     //console.log(req) // Aca obtengo el usuario que me retorno passport
     //console.log(req.flash('error'))
     //const response = await manager.createUser(req.body);
-    return res.json({ status: 200, data:`${req.user.email} registrado correctamente` });
+    //return res.json({ status: 200, data:`${req.user.email} registrado correctamente` });
     //return res.json({ status: 200, data: `Usuario registrado` })
   };
 

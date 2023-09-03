@@ -24,7 +24,6 @@ const viewProductsRoutesFn = (io) => {
 
   router.get( "/realTimeProducts",
     (req, res, next) => {
-      //if (!req.session.email) {
         if (!req.user) {
         res.redirect("/login");
       }
